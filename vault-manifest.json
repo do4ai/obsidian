@@ -1,0 +1,1050 @@
+{
+  "vault_dirname": "vault",
+  "export_root": "ssot/exports/obsidian",
+  "counts": {
+    "page_notes": 168,
+    "data_source_notes": 3,
+    "row_notes": 2,
+    "total_notes": 173
+  },
+  "notes": [
+    {
+      "title": "상품이란",
+      "source_kind": "row",
+      "notion_id": "31fe313f58b98073be3fdafc4bc21a58",
+      "path": "Data Sources/[UL]/Rows/상품이란.md"
+    },
+    {
+      "title": "[UL]",
+      "source_kind": "data_source",
+      "notion_id": "31fe313f58b980bf9223000bf23154e7",
+      "path": "Data Sources/[UL]/index.md"
+    },
+    {
+      "title": "새 데이터베이스",
+      "source_kind": "data_source",
+      "notion_id": "31fe313f58b98052867f000bd2286e68",
+      "path": "Data Sources/새 데이터베이스--31fe313f/index.md"
+    },
+    {
+      "title": "김현우",
+      "source_kind": "row",
+      "notion_id": "31fe313f58b98073b116dfb6a57597fa",
+      "path": "Data Sources/새 데이터베이스/Rows/김현우.md"
+    },
+    {
+      "title": "새 데이터베이스",
+      "source_kind": "data_source",
+      "notion_id": "31fe313f58b9804bb453000bac312cc0",
+      "path": "Data Sources/새 데이터베이스/index.md"
+    },
+    {
+      "title": "Convention",
+      "source_kind": "page",
+      "notion_id": "330e313f58b980599922cfc06f895076",
+      "path": "SenseCore AI LAB, AI융합학부/Convention/index.md"
+    },
+    {
+      "title": "UL",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98168a151f1e3d8407238",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/Domain Template/UL/index.md"
+    },
+    {
+      "title": "Domain Template",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b980168893e49708057b73",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/Domain Template/index.md"
+    },
+    {
+      "title": "도메인 스토리텔링",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98118b67fefab7b3c2c15",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/Domain Template/도메인 스토리텔링/index.md"
+    },
+    {
+      "title": "바운디드 컨텍스트",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981d1869ce51de3071ca9",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/Domain Template/바운디드 컨텍스트/index.md"
+    },
+    {
+      "title": "컨텍스트 맵",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981ca84ecf2f3fcd4156c",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/Domain Template/컨텍스트 맵/index.md"
+    },
+    {
+      "title": "OAuth 2.0",
+      "source_kind": "page",
+      "notion_id": "330e313f58b980d0b2e7d44ad9267f3a",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/OAuth 2.0/index.md"
+    },
+    {
+      "title": "Domains",
+      "source_kind": "page",
+      "notion_id": "32be313f58b9803bb9adf68c0393a0f6",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/index.md"
+    },
+    {
+      "title": "UL",
+      "source_kind": "page",
+      "notion_id": "330e313f58b9819f89aaf0c2d4ebb459",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/논문 검사 솔루션/UL/index.md"
+    },
+    {
+      "title": "논문 검사 솔루션",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981dabde2c62d552b7a6b",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/논문 검사 솔루션/index.md"
+    },
+    {
+      "title": "도메인 스토리텔링",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981d88b20e4d3031a9201",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/논문 검사 솔루션/도메인 스토리텔링/index.md"
+    },
+    {
+      "title": "바운디드 컨텍스트",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981c38004e4b8ef4593ff",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/논문 검사 솔루션/바운디드 컨텍스트/index.md"
+    },
+    {
+      "title": "컨텍스트 맵",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981328a93d0d73d843705",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/논문 검사 솔루션/컨텍스트 맵/index.md"
+    },
+    {
+      "title": "UL",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98122b3c0f8a0603b4d19",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/에이전트 플랫폼/UL/index.md"
+    },
+    {
+      "title": "에이전트 플랫폼",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b98033b03cdb4016dd7830",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/에이전트 플랫폼/index.md"
+    },
+    {
+      "title": "도메인 스토리텔링",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98155aa9af734bab3f161",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/에이전트 플랫폼/도메인 스토리텔링/index.md"
+    },
+    {
+      "title": "바운디드 컨텍스트",
+      "source_kind": "page",
+      "notion_id": "330e313f58b9818fbda9c667e825f89b",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/에이전트 플랫폼/바운디드 컨텍스트/index.md"
+    },
+    {
+      "title": "컨텍스트 맵",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981cba3cdecc6ce6194b6",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/에이전트 플랫폼/컨텍스트 맵/index.md"
+    },
+    {
+      "title": "UL",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98132bb20eaca3689151f",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/자동차 경매/UL/index.md"
+    },
+    {
+      "title": "자동차 경매",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b980468a30cf0017202035",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/자동차 경매/index.md"
+    },
+    {
+      "title": "도메인 스토리텔링",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981cab445ea320d15420f",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/자동차 경매/도메인 스토리텔링/index.md"
+    },
+    {
+      "title": "바운디드 컨텍스트",
+      "source_kind": "page",
+      "notion_id": "330e313f58b9810c8326d8e545ec2666",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/자동차 경매/바운디드 컨텍스트/index.md"
+    },
+    {
+      "title": "컨텍스트 맵",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98126ac1edc4f114b1de4",
+      "path": "SenseCore AI LAB, AI융합학부/Domains/자동차 경매/컨텍스트 맵/index.md"
+    },
+    {
+      "title": "00. SCAI LAB Guide 사용법",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98186a4d6c05b3691be05",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/00. SCAI LAB Guide 사용법/index.md"
+    },
+    {
+      "title": "10. 연구실 운영 개요",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981cf874ddf4a9ca56d7f",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/10. 연구실 운영 개요/index.md"
+    },
+    {
+      "title": "20. 계정과 접근",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981b085f8c084f2e4b621",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/20. 계정과 접근/index.md"
+    },
+    {
+      "title": "30. 연구실 업무 도구",
+      "source_kind": "page",
+      "notion_id": "330e313f58b9818ebab3da936ba637dc",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/30. 연구실 업무 도구/index.md"
+    },
+    {
+      "title": "40. 연구/개발 환경",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981f8966beb6d07085bad",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/40. 연구-개발 환경/index.md"
+    },
+    {
+      "title": "ArgoCD 운영 흐름 가이드",
+      "source_kind": "page",
+      "notion_id": "338e313f58b981f4a6d8d696ab620029",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/50. 인프라와 플랫폼/ArgoCD 운영 흐름 가이드/index.md"
+    },
+    {
+      "title": "GitOps 운영 모델 가이드",
+      "source_kind": "page",
+      "notion_id": "338e313f58b981008b6bcee9a4b3333e",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/50. 인프라와 플랫폼/GitOps 운영 모델 가이드/index.md"
+    },
+    {
+      "title": "Infisical 시크릿 관리 가이드",
+      "source_kind": "page",
+      "notion_id": "338e313f58b98101a383cf9fc68ffcf5",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/50. 인프라와 플랫폼/Infisical 시크릿 관리 가이드/index.md"
+    },
+    {
+      "title": "Kubernetes 기본 구조 가이드",
+      "source_kind": "page",
+      "notion_id": "338e313f58b9818d93b4df013bf48769",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/50. 인프라와 플랫폼/Kubernetes 기본 구조 가이드/index.md"
+    },
+    {
+      "title": "Observability 운영 가이드",
+      "source_kind": "page",
+      "notion_id": "338e313f58b981759316c45f5a967fc1",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/50. 인프라와 플랫폼/Observability 운영 가이드/index.md"
+    },
+    {
+      "title": "50. 인프라와 플랫폼",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981a0b738ed69daa8f3a0",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/50. 인프라와 플랫폼/index.md"
+    },
+    {
+      "title": "k3s GitOps 운영 클러스터 초보자 가이드",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98144ac78c9476ef7246c",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/50. 인프라와 플랫폼/k3s GitOps 운영 클러스터 초보자 가이드/index.md"
+    },
+    {
+      "title": "k3s 운영 구조 가이드",
+      "source_kind": "page",
+      "notion_id": "338e313f58b9817bbfd3ecb17862cbd8",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/50. 인프라와 플랫폼/k3s 운영 구조 가이드/index.md"
+    },
+    {
+      "title": "60. 서비스 운영",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981389e9ee483d5ff6d88",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/60. 서비스 운영/index.md"
+    },
+    {
+      "title": "70. 데이터, 관측, 보안",
+      "source_kind": "page",
+      "notion_id": "330e313f58b9810a9075d5d9e176d8fd",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/70. 데이터, 관측, 보안/index.md"
+    },
+    {
+      "title": "k3s 운영 장애 Discord 리포트 설계",
+      "source_kind": "page",
+      "notion_id": "335e313f58b981149d2ecb7c4ad3df4a",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/70. 데이터, 관측, 보안/k3s 운영 장애 Discord 리포트 설계/index.md"
+    },
+    {
+      "title": "운영 장애 Discord 리포트 솔루션 리서치",
+      "source_kind": "page",
+      "notion_id": "335e313f58b981eea14ede3a1fd33ed2",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/70. 데이터, 관측, 보안/운영 장애 Discord 리포트 솔루션 리서치/index.md"
+    },
+    {
+      "title": "80. 협업과 커뮤니케이션",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98180b893ceef6aa2bbf8",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/80. 협업과 커뮤니케이션/index.md"
+    },
+    {
+      "title": "90. 장애 대응과 운영 판단",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981d485f5ef384de9268c",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/90. 장애 대응과 운영 판단/index.md"
+    },
+    {
+      "title": "Guide",
+      "source_kind": "page",
+      "notion_id": "330e313f58b9802b9cedda8dcbc5d112",
+      "path": "SenseCore AI LAB, AI융합학부/Guide/index.md"
+    },
+    {
+      "title": "1. 문자와 식, 다항식의 구조",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981338945ea55f75d4abe",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/01. 숫자와 계산의 감각/1. 문자와 식, 다항식의 구조/index.md"
+    },
+    {
+      "title": "2. 방정식과 부등식",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9810da09bf52c8cbe0f3e",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/01. 숫자와 계산의 감각/2. 방정식과 부등식/index.md"
+    },
+    {
+      "title": "3. 함수와 그래프",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9819897b0fd97a9134025",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/01. 숫자와 계산의 감각/3. 함수와 그래프/index.md"
+    },
+    {
+      "title": "4. 지수와 로그",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b98167a538cc8aebfcae6d",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/01. 숫자와 계산의 감각/4. 지수와 로그/index.md"
+    },
+    {
+      "title": "5. 수열, 급수, 시그마",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9815e8ba3d35dea7f0468",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/01. 숫자와 계산의 감각/5. 수열, 급수, 시그마/index.md"
+    },
+    {
+      "title": "6. 삼각함수와 복소수",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981efb0f6ee6f9fd55624",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/01. 숫자와 계산의 감각/6. 삼각함수와 복소수/index.md"
+    },
+    {
+      "title": "01. 숫자와 계산의 감각",
+      "source_kind": "page",
+      "notion_id": "32be313f58b9819998e4ec302aefd21d",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/01. 숫자와 계산의 감각/index.md"
+    },
+    {
+      "title": "문제 해설 - 01. 숫자와 계산의 감각",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981eeb5f6e22f1fcf085e",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/01. 숫자와 계산의 감각/문제 해설 - 01. 숫자와 계산의 감각/index.md"
+    },
+    {
+      "title": "10. 직교성, 투영, 최소제곱",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b98197a52ace6b0ca89335",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/02. 벡터와 행렬의 시작/10. 직교성, 투영, 최소제곱/index.md"
+    },
+    {
+      "title": "11. 특이값분해와 저랭크 근사",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b98119b9d8d951257957e4",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/02. 벡터와 행렬의 시작/11. 특이값분해와 저랭크 근사/index.md"
+    },
+    {
+      "title": "7. 벡터공간과 기저",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981c79bfff023a1b3ac9a",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/02. 벡터와 행렬의 시작/7. 벡터공간과 기저/index.md"
+    },
+    {
+      "title": "8. 행렬연산과 선형시스템",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981ff91c1fb25407aebb8",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/02. 벡터와 행렬의 시작/8. 행렬연산과 선형시스템/index.md"
+    },
+    {
+      "title": "9. 선형변환과 고유값",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981ad9be7f3becd1be9ff",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/02. 벡터와 행렬의 시작/9. 선형변환과 고유값/index.md"
+    },
+    {
+      "title": "02. 벡터와 행렬의 시작",
+      "source_kind": "page",
+      "notion_id": "32be313f58b981dfaa1ef692510e6dfa",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/02. 벡터와 행렬의 시작/index.md"
+    },
+    {
+      "title": "문제 해설 - 02. 식과 방정식의 언어",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981c29e02fa266c8453bb",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/02. 벡터와 행렬의 시작/문제 해설 - 02. 식과 방정식의 언어/index.md"
+    },
+    {
+      "title": "12. 극한, 연속, 미분",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9816ca9b4e14d4bfc2c38",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/03. 그래프와 함수의 시야/12. 극한, 연속, 미분/index.md"
+    },
+    {
+      "title": "13. 다변수미분과 Jacobian",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9811b9472fd12e49babdd",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/03. 그래프와 함수의 시야/13. 다변수미분과 Jacobian/index.md"
+    },
+    {
+      "title": "14. 적분, 누적량, 확률밀도",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9814982a0e3e9d7c50cbc",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/03. 그래프와 함수의 시야/14. 적분, 누적량, 확률밀도/index.md"
+    },
+    {
+      "title": "15. Taylor 전개와 근사",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9811187bbc6180411e2ed",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/03. 그래프와 함수의 시야/15. Taylor 전개와 근사/index.md"
+    },
+    {
+      "title": "16. 미분방정식과 동역학",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b98164bc35cc0f05edbc78",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/03. 그래프와 함수의 시야/16. 미분방정식과 동역학/index.md"
+    },
+    {
+      "title": "03. 그래프와 함수의 시야",
+      "source_kind": "page",
+      "notion_id": "32be313f58b981cfa627cdcbf9396538",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/03. 그래프와 함수의 시야/index.md"
+    },
+    {
+      "title": "문제 해설 - 03. 미적분과 해석",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9813a9f04d730ad9e89b5",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/03. 그래프와 함수의 시야/문제 해설 - 03. 미적분과 해석/index.md"
+    },
+    {
+      "title": "17. 조합론과 확률",
+      "source_kind": "page",
+      "notion_id": "33be313f58b981199592e20756477621",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/04. 경우의 수, 확률, 통계의 기초/17. 조합론과 확률/index.md"
+    },
+    {
+      "title": "18. 확률변수와 주요 분포",
+      "source_kind": "page",
+      "notion_id": "33be313f58b98162b62be5b379eca5d9",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/04. 경우의 수, 확률, 통계의 기초/18. 확률변수와 주요 분포/index.md"
+    },
+    {
+      "title": "19. 기대값, 분산, 공분산",
+      "source_kind": "page",
+      "notion_id": "33be313f58b98114ac92f28614e6c0ba",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/04. 경우의 수, 확률, 통계의 기초/19. 기대값, 분산, 공분산/index.md"
+    },
+    {
+      "title": "20. 통계적 추정, MLE, MAP, 베이즈",
+      "source_kind": "page",
+      "notion_id": "33be313f58b981a389bfc8990b9c1527",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/04. 경우의 수, 확률, 통계의 기초/20. 통계적 추정, MLE, MAP, 베이즈/index.md"
+    },
+    {
+      "title": "21. 가설검정, 신뢰구간, 실험설계",
+      "source_kind": "page",
+      "notion_id": "33be313f58b981e6a4deeeb185854a50",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/04. 경우의 수, 확률, 통계의 기초/21. 가설검정, 신뢰구간, 실험설계/index.md"
+    },
+    {
+      "title": "04. 경우의 수, 확률, 통계의 기초",
+      "source_kind": "page",
+      "notion_id": "33be313f58b9811c94d6d1d77325a143",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/04. 경우의 수, 확률, 통계의 기초/index.md"
+    },
+    {
+      "title": "문제 해설 - 04. 확률과 통계",
+      "source_kind": "page",
+      "notion_id": "33be313f58b98136b585c6632d7f80d7",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/04. 경우의 수, 확률, 통계의 기초/문제 해설 - 04. 확률과 통계/index.md"
+    },
+    {
+      "title": "22. 볼록성, 제약최적화, 라그랑주",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9815da8ccc3749a29b989",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/05. 최적화와 정보이론/22. 볼록성, 제약최적화, 라그랑주/index.md"
+    },
+    {
+      "title": "23. 경사하강법, 모멘텀, Adam",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9818592bbe9a122de565c",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/05. 최적화와 정보이론/23. 경사하강법, 모멘텀, Adam/index.md"
+    },
+    {
+      "title": "24. 수치선형대수와 자동미분",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981f391cfe64ed745ca04",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/05. 최적화와 정보이론/24. 수치선형대수와 자동미분/index.md"
+    },
+    {
+      "title": "25. 엔트로피, cross-entropy, KL divergence",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9815a82f8cdfff793bece",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/05. 최적화와 정보이론/25. 엔트로피, cross-entropy, KL divergence/index.md"
+    },
+    {
+      "title": "26. 일반화, 정규화, bias-variance",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9814a9882c1664ceb1615",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/05. 최적화와 정보이론/26. 일반화, 정규화, bias-variance/index.md"
+    },
+    {
+      "title": "05. 최적화와 정보이론",
+      "source_kind": "page",
+      "notion_id": "32be313f58b981218ea7f570cd9c2cc9",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/05. 최적화와 정보이론/index.md"
+    },
+    {
+      "title": "문제 해설 - 05. 최적화와 정보이론",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981a8855bceb05dce902c",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/05. 최적화와 정보이론/문제 해설 - 05. 최적화와 정보이론/index.md"
+    },
+    {
+      "title": "27. 선형회귀와 최소제곱",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9813b908cc44628a28a2b",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/06. 머신러닝 이론/27. 선형회귀와 최소제곱/index.md"
+    },
+    {
+      "title": "28. 로지스틱 회귀와 지수족",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9811c9360d73108b4658b",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/06. 머신러닝 이론/28. 로지스틱 회귀와 지수족/index.md"
+    },
+    {
+      "title": "29. PCA와 잠재공간",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b98170be11dd5208f53101",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/06. 머신러닝 이론/29. PCA와 잠재공간/index.md"
+    },
+    {
+      "title": "30. 커널방법과 RKHS 직관",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981e893b2deba97a3feb8",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/06. 머신러닝 이론/30. 커널방법과 RKHS 직관/index.md"
+    },
+    {
+      "title": "31. 그래픽모델, EM, 잠재변수",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9813f97c5dcada929a17b",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/06. 머신러닝 이론/31. 그래픽모델, EM, 잠재변수/index.md"
+    },
+    {
+      "title": "06. 머신러닝 이론",
+      "source_kind": "page",
+      "notion_id": "32be313f58b981d6a3abc851b17fc30a",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/06. 머신러닝 이론/index.md"
+    },
+    {
+      "title": "문제 해설 - 06. 머신러닝 이론",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b98149b235efea5ba9df59",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/06. 머신러닝 이론/문제 해설 - 06. 머신러닝 이론/index.md"
+    },
+    {
+      "title": "32. 신경망, 계산그래프, backprop",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981c78dacfdd0b81628f7",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/07. 딥러닝과 생성모델/32. 신경망, 계산그래프, backprop/index.md"
+    },
+    {
+      "title": "33. 초기화, 정규화, residual, optimization tricks",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981cdbdbcd3766b34ca00",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/07. 딥러닝과 생성모델/33. 초기화, 정규화, residual, optimization tricks/index.md"
+    },
+    {
+      "title": "34. self-supervised learning과 표현학습",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9812ea09fd3fd4819c663",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/07. 딥러닝과 생성모델/34. self-supervised learning과 표현학습/index.md"
+    },
+    {
+      "title": "35. variational inference, ELBO, VAE",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9812aa4a6f27c11e5558c",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/07. 딥러닝과 생성모델/35. variational inference, ELBO, VAE/index.md"
+    },
+    {
+      "title": "36. 확률과정, score matching, diffusion",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981b9a880c339ef5c8073",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/07. 딥러닝과 생성모델/36. 확률과정, score matching, diffusion/index.md"
+    },
+    {
+      "title": "07. 딥러닝과 생성모델",
+      "source_kind": "page",
+      "notion_id": "32be313f58b98136b5e8e10cfe7f2d50",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/07. 딥러닝과 생성모델/index.md"
+    },
+    {
+      "title": "문제 해설 - 07. 딥러닝과 생성모델",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981a09b98e45b2ab50650",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/07. 딥러닝과 생성모델/문제 해설 - 07. 딥러닝과 생성모델/index.md"
+    },
+    {
+      "title": "37. Attention, Transformer, positional math",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981a3b3c8f735fc4a761e",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/08. LLM, VLM, 멀티모달 AI 수학/37. Attention, Transformer, positional math/index.md"
+    },
+    {
+      "title": "38. LLM pretraining, scaling laws, tokenization",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9812f9e77cc285a799ee5",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/08. LLM, VLM, 멀티모달 AI 수학/38. LLM pretraining, scaling laws, tokenization/index.md"
+    },
+    {
+      "title": "39. Alignment SFT, RLHF, DPO",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9819e91ebcb45bcb34cac",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/08. LLM, VLM, 멀티모달 AI 수학/39. Alignment SFT, RLHF, DPO/index.md"
+    },
+    {
+      "title": "40. CLIP, contrastive learning, multimodal alignment",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9816ab4d7f6fcb3917b51",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/08. LLM, VLM, 멀티모달 AI 수학/40. CLIP, contrastive learning, multimodal alignment/index.md"
+    },
+    {
+      "title": "41. VLM, multimodal generation, fusion architectures",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b981e7883de1e3a0ec86c3",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/08. LLM, VLM, 멀티모달 AI 수학/41. VLM, multimodal generation, fusion architectures/index.md"
+    },
+    {
+      "title": "42. Frontier topics optimal transport, graphs, manifolds, mechanistic interpretability, 최신 논문 독해",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b98129a27ec22c0cca15e8",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/08. LLM, VLM, 멀티모달 AI 수학/42. Frontier topics optimal transport, graphs, manifolds, mechanistic interpretability, 최신 논문 독해/index.md"
+    },
+    {
+      "title": "08. LLM, VLM, 멀티모달 AI 수학",
+      "source_kind": "page",
+      "notion_id": "32be313f58b9810b873aef61d2e45e6d",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/08. LLM, VLM, 멀티모달 AI 수학/index.md"
+    },
+    {
+      "title": "문제 해설 - 08. LLM, VLM, 멀티모달 AI 수학",
+      "source_kind": "page",
+      "notion_id": "32ce313f58b9813aa92acd49915a2672",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/08. LLM, VLM, 멀티모달 AI 수학/문제 해설 - 08. LLM, VLM, 멀티모달 AI 수학/index.md"
+    },
+    {
+      "title": "AI를 위한 수학",
+      "source_kind": "page",
+      "notion_id": "32be313f58b981e7b26fea2d45e6fa7f",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/AI를 위한 수학/index.md"
+    },
+    {
+      "title": "Lecture",
+      "source_kind": "page",
+      "notion_id": "32be313f58b980078dbbeed4f006f95b",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/index.md"
+    },
+    {
+      "title": "Lecture Sync Test",
+      "source_kind": "page",
+      "notion_id": "32be313f58b98186b0afedae2701fd58",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/풀스택실전스터디/Lecture Sync Test/index.md"
+    },
+    {
+      "title": "풀스택실전스터디",
+      "source_kind": "page",
+      "notion_id": "31ee313f58b980ab8034d58806b92f8d",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/풀스택실전스터디/index.md"
+    },
+    {
+      "title": "커리큘럼",
+      "source_kind": "page",
+      "notion_id": "31ee313f58b980c3b3e7d035d1dae6ce",
+      "path": "SenseCore AI LAB, AI융합학부/Lecture/풀스택실전스터디/커리큘럼/index.md"
+    },
+    {
+      "title": "00. SCAI LAB Manual 사용법",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98111b39ee4127f3a5fb3",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/00. SCAI LAB Manual 사용법/index.md"
+    },
+    {
+      "title": "10. 계정 발급과 회수",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98102934ec2cfe1a3827e",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/10. 계정 발급과 회수/index.md"
+    },
+    {
+      "title": "20. 외부 로그인 설정",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98114bbc9e9d8d8aa230a",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/20. 외부 로그인 설정/index.md"
+    },
+    {
+      "title": "구글로그인",
+      "source_kind": "page",
+      "notion_id": "330e313f58b980a8b0aac94bf3a24091",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/20. 외부 로그인 설정/구글로그인/index.md"
+    },
+    {
+      "title": "카카오로그인",
+      "source_kind": "page",
+      "notion_id": "330e313f58b981ad93eff818824124a1",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/20. 외부 로그인 설정/카카오로그인/index.md"
+    },
+    {
+      "title": "30. 서버와 배포 작업",
+      "source_kind": "page",
+      "notion_id": "330e313f58b9813fbc22ca7f38ac4014",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/30. 서버와 배포 작업/index.md"
+    },
+    {
+      "title": "k3s 클러스터 접속과 GitOps 배포 점검",
+      "source_kind": "page",
+      "notion_id": "338e313f58b981dfbed0fc166c44a2c2",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/30. 서버와 배포 작업/k3s 클러스터 접속과 GitOps 배포 점검/index.md"
+    },
+    {
+      "title": "Ingress, 도메인, 이미지, 환경 변수 변경 절차",
+      "source_kind": "page",
+      "notion_id": "338e313f58b98158aed9cb71470b8ec5",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/40. 운영 변경 작업/Ingress, 도메인, 이미지, 환경 변수 변경 절차/index.md"
+    },
+    {
+      "title": "40. 운영 변경 작업",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98127a3a5c1d5d883a489",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/40. 운영 변경 작업/index.md"
+    },
+    {
+      "title": "Grafana, Kibana, Tempo 1차 장애 확인 절차",
+      "source_kind": "page",
+      "notion_id": "338e313f58b981cb9d17f7c61b7d1d0c",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/50. 모니터링-로그 작업/Grafana, Kibana, Tempo 1차 장애 확인 절차/index.md"
+    },
+    {
+      "title": "50. 모니터링/로그 작업",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98117b6efd664ee0f6659",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/50. 모니터링-로그 작업/index.md"
+    },
+    {
+      "title": "Infisical 시크릿 반영과 권한 변경 절차",
+      "source_kind": "page",
+      "notion_id": "338e313f58b98168ba1ddcebbea85b42",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/60. 시크릿-권한 작업/Infisical 시크릿 반영과 권한 변경 절차/index.md"
+    },
+    {
+      "title": "60. 시크릿/권한 작업",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98140bc33f493356b50dc",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/60. 시크릿-권한 작업/index.md"
+    },
+    {
+      "title": "do4i 배포 이상 대응 절차",
+      "source_kind": "page",
+      "notion_id": "338e313f58b981c4993dc26c50d26040",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/70. 서비스별 운영 작업/do4i 배포 이상 대응 절차/index.md"
+    },
+    {
+      "title": "70. 서비스별 운영 작업",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98181a506fee4b158ad5a",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/70. 서비스별 운영 작업/index.md"
+    },
+    {
+      "title": "palcar 배포 이상 대응 절차",
+      "source_kind": "page",
+      "notion_id": "338e313f58b9811d8079c6f3a370d74b",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/70. 서비스별 운영 작업/palcar 배포 이상 대응 절차/index.md"
+    },
+    {
+      "title": "papersens 배포 이상 대응 절차",
+      "source_kind": "page",
+      "notion_id": "338e313f58b981ab939ac19ea104bc05",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/70. 서비스별 운영 작업/papersens 배포 이상 대응 절차/index.md"
+    },
+    {
+      "title": "서비스 배포 이상 1차 대응 절차",
+      "source_kind": "page",
+      "notion_id": "338e313f58b9816f87cee5b8285862b0",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/70. 서비스별 운영 작업/서비스 배포 이상 1차 대응 절차/index.md"
+    },
+    {
+      "title": "Manual",
+      "source_kind": "page",
+      "notion_id": "330e313f58b98098b619f0e3ef2d0fa0",
+      "path": "SenseCore AI LAB, AI융합학부/Manual/index.md"
+    },
+    {
+      "title": "SCAI LAB의 동료들을 소개합니다.",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b98053b5fefc9ccfc0be18",
+      "path": "SenseCore AI LAB, AI융합학부/SCAI LAB의 동료들을 소개합니다/index.md"
+    },
+    {
+      "title": "Data Analysis",
+      "source_kind": "page",
+      "notion_id": "320e313f58b9803b8d0fd81376e5ea7b",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Data Analysis/index.md"
+    },
+    {
+      "title": "Design",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b980c5a90cd148b35b89f2",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Design/index.md"
+    },
+    {
+      "title": "Development",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b980e3a117c2c1760e85c8",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/index.md"
+    },
+    {
+      "title": "개발",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b980dfbab5db1fd03b7de9",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/index.md"
+    },
+    {
+      "title": "3 Layer(N-tier)",
+      "source_kind": "page",
+      "notion_id": "321e313f58b980679f96d8ca33f0f813",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/3 Layer(N-tier)/index.md"
+    },
+    {
+      "title": "EDA(Event Driven Architecture)",
+      "source_kind": "page",
+      "notion_id": "321e313f58b980c38002e123bbe88f8a",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/EDA(Event Driven Architecture)/index.md"
+    },
+    {
+      "title": "Hexagonal Architecture(Ports and Adapters)",
+      "source_kind": "page",
+      "notion_id": "321e313f58b9807eb2a0c645aeb825b7",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/Hexagonal Architecture(Ports and Adapters)/index.md"
+    },
+    {
+      "title": "MSA(Microservice Architecture)",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b9809cb249cf6d07fec42e",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/MSA(Microservice Architecture)/index.md"
+    },
+    {
+      "title": "Message Queue",
+      "source_kind": "page",
+      "notion_id": "323e313f58b98006b66bcd96e1fbed8a",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/Message Queue/index.md"
+    },
+    {
+      "title": "아키텍처 디자인",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b980fa9269f841ad2f1e8d",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/index.md"
+    },
+    {
+      "title": "Aggregate",
+      "source_kind": "page",
+      "notion_id": "324e313f58b9817391b5dd68c319ada9",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/Aggregate/index.md"
+    },
+    {
+      "title": "Bounded Context (BC)",
+      "source_kind": "page",
+      "notion_id": "324e313f58b9817eb2bfdc304a1e7503",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/Bounded Context (BC)/index.md"
+    },
+    {
+      "title": "Context Map",
+      "source_kind": "page",
+      "notion_id": "324e313f58b981c38a10d7779c3770e7",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/Context Map/index.md"
+    },
+    {
+      "title": "DDD의 정의",
+      "source_kind": "page",
+      "notion_id": "324e313f58b9800e9209e7b3a59dd520",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/DDD의 정의/index.md"
+    },
+    {
+      "title": "Domain Storytelling",
+      "source_kind": "page",
+      "notion_id": "325e313f58b98080b152c750bda868fb",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/Domain Storytelling/index.md"
+    },
+    {
+      "title": "Domain",
+      "source_kind": "page",
+      "notion_id": "324e313f58b9813f9765fde32b6644fb",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/Domain/index.md"
+    },
+    {
+      "title": "Entity",
+      "source_kind": "page",
+      "notion_id": "324e313f58b980e0a01fe5ccf8349609",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/Entity/index.md"
+    },
+    {
+      "title": "Modeling",
+      "source_kind": "page",
+      "notion_id": "324e313f58b981a89401e22c75eb5101",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/Modeling/index.md"
+    },
+    {
+      "title": "Ubiquitous Language (UL)",
+      "source_kind": "page",
+      "notion_id": "324e313f58b98141b8decc658526d651",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/Ubiquitous Language (UL)/index.md"
+    },
+    {
+      "title": "Value Object",
+      "source_kind": "page",
+      "notion_id": "324e313f58b980ceaa57f44936e70e4c",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/Value Object/index.md"
+    },
+    {
+      "title": "도메인 주도 설계 (Domain-Driven Design, DDD)",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b9809486f6d78414308d4f",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/도메인 주도 설계 (Domain-Driven Design, DDD)/index.md"
+    },
+    {
+      "title": "모놀리식 아키텍처(Monolithic Architecture)",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b9801090e3f9f3c280a976",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/모놀리식 아키텍처(Monolithic Architecture)/index.md"
+    },
+    {
+      "title": "분산 시스템",
+      "source_kind": "page",
+      "notion_id": "323e313f58b980f1b280e54c55aa1d26",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/개발/아키텍처 디자인/분산 시스템/index.md"
+    },
+    {
+      "title": "데이터베이스",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b9800e926bcfee387e1f60",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/데이터베이스/index.md"
+    },
+    {
+      "title": "백엔드",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b98060a76fed2014102aee",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/백엔드/index.md"
+    },
+    {
+      "title": "아키텍처 디자인",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b9802d8087d4d5e5e6c85b",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/아키텍처 디자인/index.md"
+    },
+    {
+      "title": "인프라",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b9801ca1e9d3c819f07da9",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/인프라/index.md"
+    },
+    {
+      "title": "프론트",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b98092982ac3f16db906d6",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Development/프론트/index.md"
+    },
+    {
+      "title": "LLM",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b9801fb150ff891cb75b7b",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/LLM/index.md"
+    },
+    {
+      "title": "Machine Learning",
+      "source_kind": "page",
+      "notion_id": "320e313f58b9801aa04cc8bf59d27505",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Machine Learning/index.md"
+    },
+    {
+      "title": "Planning",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b98076803df34fa20513c3",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Planning/index.md"
+    },
+    {
+      "title": "Project Managing",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b980efb284ee425e27e7a0",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Project Managing/index.md"
+    },
+    {
+      "title": "Sales",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b98040970bd4ef364c4c72",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/Sales/index.md"
+    },
+    {
+      "title": "VLM",
+      "source_kind": "page",
+      "notion_id": "320e313f58b980ec9b4ecf8df40ab6b5",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/VLM/index.md"
+    },
+    {
+      "title": "Wiki",
+      "source_kind": "page",
+      "notion_id": "32be313f58b980eaa56ef58b10517652",
+      "path": "SenseCore AI LAB, AI융합학부/Wiki/index.md"
+    },
+    {
+      "title": "SenseCore AI LAB, AI융합학부",
+      "source_kind": "page",
+      "notion_id": "31ee313f58b980d68c5ad8ed9d5aeff8",
+      "path": "SenseCore AI LAB, AI융합학부/index.md"
+    },
+    {
+      "title": "완료",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b9801f9d2aefda9025c2f4",
+      "path": "SenseCore AI LAB, AI융합학부/완료/index.md"
+    },
+    {
+      "title": "Feature",
+      "source_kind": "page",
+      "notion_id": "322e313f58b98090a638e3256c616205",
+      "path": "SenseCore AI LAB, AI융합학부/진행 중/PassView/Feature/index.md"
+    },
+    {
+      "title": "Screen",
+      "source_kind": "page",
+      "notion_id": "322e313f58b980109fa4dd7d67585090",
+      "path": "SenseCore AI LAB, AI융합학부/진행 중/PassView/Screen/index.md"
+    },
+    {
+      "title": "PassView",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b9808e83aed9a2e2cb0c7c",
+      "path": "SenseCore AI LAB, AI융합학부/진행 중/PassView/index.md"
+    },
+    {
+      "title": "진행 중",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b9806c90cfc2b55684eb26",
+      "path": "SenseCore AI LAB, AI융합학부/진행 중/index.md"
+    },
+    {
+      "title": "palcar",
+      "source_kind": "page",
+      "notion_id": "31fe313f58b98075abcde94280f11682",
+      "path": "SenseCore AI LAB, AI융합학부/진행 중/palcar/index.md"
+    }
+  ]
+}
