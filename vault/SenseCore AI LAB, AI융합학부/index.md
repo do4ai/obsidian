@@ -14,43 +14,16 @@ notion_icon: "🌒"
 진행 중이거나 완료된 연구/과제를 기록합니다.
 [완료](완료/index.md)
 [진행 중](진행 중/index.md)
-<div class="atlas-columns">
-<div class="atlas-column-card">
-<div class="atlas-card-title">💼 Convention</div>
-<p class="atlas-card-text">개발, 운영 등의 프로세스에서 준수해야 하는 규칙입니다.</p>
-<p class="atlas-card-link"><a href="Convention/index.md">Convention</a></p>
-</div>
-<div class="atlas-column-card">
-<div class="atlas-card-title">🧾 Domains</div>
-<p class="atlas-card-text">진행한 프로젝트의 일반화된 도메인 문서를 관리합니다.</p>
-<p class="atlas-card-link"><a href="Domains/index.md">Domains</a></p>
-</div>
-</div>
+| 💼 Convention | 🧾 Domains |
+| --- | --- |
+| 개발, 운영 등의 프로세스에서 준수해야 하는 규칙입니다.<br>[Convention](Convention/index.md) | 진행한 프로젝트의 일반화된 도메인 문서를 관리합니다.<br>[Domains](Domains/index.md) |
 
-<div class="atlas-columns">
-<div class="atlas-column-card">
-<div class="atlas-card-title">📖 Guide</div>
-<p class="atlas-card-text">솔루션, 서비스를 활용하는 가이드입니다.</p>
-<p class="atlas-card-link"><a href="Guide/index.md">Guide</a></p>
-</div>
-<div class="atlas-column-card">
-<div class="atlas-card-title">🗓️ Manual</div>
-<p class="atlas-card-text">일, 업무 등의 절차를 기술한 매뉴얼입니다.</p>
-<p class="atlas-card-link"><a href="Manual/index.md">Manual</a></p>
-</div>
-</div>
-<div class="atlas-columns">
-<div class="atlas-column-card">
-<div class="atlas-card-title">📚 Wiki</div>
-<p class="atlas-card-text">SCAILAB 위키입니다.</p>
-<p class="atlas-card-link"><a href="Wiki/index.md">Wiki</a></p>
-</div>
-<div class="atlas-column-card">
-<div class="atlas-card-title">💻 Lecture</div>
-<p class="atlas-card-text">수학, 개발, AI 등 다양한 분야의 강의 자료입니다.</p>
-<p class="atlas-card-link"><a href="Lecture/index.md">Lecture</a></p>
-</div>
-</div>
+| 📖 Guide | 🗓️ Manual |
+| --- | --- |
+| 솔루션, 서비스를 활용하는 가이드입니다.<br>[Guide](Guide/index.md) | 일, 업무 등의 절차를 기술한 매뉴얼입니다.<br>[Manual](Manual/index.md) |
+| 📚 Wiki | 💻 Lecture |
+| --- | --- |
+| SCAILAB 위키입니다.<br>[Wiki](Wiki/index.md) | 수학, 개발, AI 등 다양한 분야의 강의 자료입니다.<br>[Lecture](Lecture/index.md) |
 
 ## Page Tree
 

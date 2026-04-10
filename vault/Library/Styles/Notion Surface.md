@@ -77,53 +77,47 @@ body {
   line-height: 1.7;
 }
 
-.atlas-columns {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+.cm-content table,
+.ProseMirror table {
+  width: 100%;
   margin: 1rem 0 1.6rem;
-}
-
-.atlas-column-card {
+  border-collapse: separate;
+  border-spacing: 0;
   background: linear-gradient(180deg, #fffdf8 0%, #f9f1e3 100%);
   border: 1px solid #e7cfaa;
   border-radius: 18px;
   box-shadow: 0 12px 24px rgba(120, 53, 15, 0.07);
-  padding: 1rem 1.1rem;
+  overflow: hidden;
 }
 
-.atlas-card-title {
+.cm-content table th,
+.ProseMirror table th {
+  background: rgba(231, 207, 170, 0.42);
   color: #111827;
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  margin: 0 0 0.45rem;
+  padding: 0.9rem 1rem;
+  border: 0;
+  text-align: left;
 }
 
-.atlas-card-text {
+.cm-content table td,
+.ProseMirror table td {
+  min-width: 18rem;
+  padding: 1rem;
+  border: 0;
+  border-top: 1px solid #ecd8b9;
   color: #4b5563;
-  line-height: 1.6;
-  margin: 0.2rem 0;
-}
-
-.atlas-card-link {
-  margin: 0.7rem 0 0;
-}
-
-.atlas-card-link a {
-  color: #92400e;
-  font-weight: 700;
-}
-
-.atlas-home-intro {
-  color: #57534e;
-  font-size: 0.96rem;
-  margin: 0.4rem 0 1.25rem;
+  line-height: 1.7;
+  vertical-align: top;
 }
 
 @media (max-width: 900px) {
-  .atlas-columns {
-    grid-template-columns: 1fr;
+  .cm-content table,
+  .ProseMirror table {
+    display: block;
+    overflow-x: auto;
   }
 }
 
