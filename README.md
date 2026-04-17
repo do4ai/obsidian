@@ -1,11 +1,11 @@
 # atlas
 
-`do4ai/atlas`는 문서 내용만 관리하는 옵시디언 vault 저장소다.
+`do4ai/atlas`는 Atlas 문서 원본을 관리하는 마크다운 저장소다.
 
 - 배포 도메인: `atlas.do4ai.com`
 - 인프라와 운영: 별도 GitOps 저장소에서 담당
-- 이 저장소의 책임: `vault/` 아래 마크다운 문서와 SilverBullet space 설정 유지
-- 기본 UX 방향: Notion에 가까운 넓은 문서 편집 화면, 템플릿, slash snippets 제공
+- 이 저장소의 책임: `vault/` 아래 마크다운 문서와 Wiki.js 동기화 스크립트 유지
+- 배포 런타임: GitOps 저장소에서 `vault/`를 Wiki.js 인스턴스로 동기화
 
 ## 갱신 방식
 
@@ -15,4 +15,22 @@
 python3 scripts/notion_obsidian_export.py seed-repo --repo-dir ../atlas
 ```
 
-GitOps 저장소는 이 저장소를 읽어 SilverBullet 런타임으로 `atlas.do4ai.com`에 배포한다.
+GitOps 저장소는 이 저장소를 주기적으로 pull 한 뒤 `scripts/atlas_wikijs_sync.py`로 Wiki.js에 반영한다.
+
+## Wiki.js 동기화
+
+로컬에서 경로 매핑과 링크 재작성을 점검하려면 dry-run을 사용한다.
+
+```bash
+python3 scripts/atlas_wikijs_sync.py sync --dry-run
+```
+
+실제 운영 배포에서는 같은 스크립트가 두 단계를 담당한다.
+
+- `ensure-setup`: 빈 Wiki.js 인스턴스를 자동 초기화
+- `sync`: `vault/` 문서를 Wiki.js page path로 변환하고 create, update, delete 반영
+
+동기화 대상은 `vault/` 전체이며, 다음 경로는 제외한다.
+
+- `vault/CONFIG.md`
+- `vault/Library/`
