@@ -1,8 +1,8 @@
 ---
-title: "do4ai Atlas"
+title: "do4ai Wiki"
 source_kind: generated_index
 ---
-# do4ai Atlas
+# do4ai Wiki
 
 Workspace home: [SenseCore AI LAB, AI융합학부](SenseCore AI LAB, AI융합학부/index.md)
 

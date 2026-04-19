@@ -19,10 +19,15 @@ from urllib import error, parse, request
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_VAULT_ROOT = REPO_ROOT / "vault"
 DEFAULT_BASE_URL = "http://127.0.0.1:3000"
-DEFAULT_SITE_URL = "https://atlas.do4ai.com"
+DEFAULT_SITE_URL = "https://wiki.do4ai.com"
 DEFAULT_LOCALE = "en"
+DEFAULT_NAVIGATION_MODE = "TREE"
 SYNC_TAG = "atlas-sync"
 STATE_VERSION = 1
+MANAGED_HEAD_START = "<!-- atlas-managed:inject-head:start -->"
+MANAGED_HEAD_END = "<!-- atlas-managed:inject-head:end -->"
+MANAGED_CSS_START = "/* atlas-managed:inject-css:start */"
+MANAGED_CSS_END = "/* atlas-managed:inject-css:end */"
 LEGACY_SB_CLIENT_CLEANUP_HEAD = """<script>
 (() => {
   try {
@@ -51,6 +56,110 @@ LEGACY_SB_CLIENT_CLEANUP_HEAD = """<script>
   } catch (_) {}
 })();
 </script>"""
+ATLAS_THEME_CSS = """
+:root {
+  --atlas-text: #1f2937;
+  --atlas-subtle: #4b5563;
+  --atlas-border: #e5e7eb;
+  --atlas-surface: #ffffff;
+  --atlas-surface-alt: #f8fafc;
+  --atlas-link: #0f766e;
+  --atlas-link-hover: #115e59;
+}
+
+.contents {
+  color: var(--atlas-text);
+  font-size: 1.04rem;
+  line-height: 1.8;
+}
+
+.contents p,
+.contents ul,
+.contents ol,
+.contents blockquote,
+.contents .table-container,
+.contents pre {
+  margin-top: 0.95rem;
+  margin-bottom: 1.1rem;
+}
+
+.contents h1,
+.contents h2,
+.contents h3 {
+  color: #111827;
+  letter-spacing: -0.01em;
+}
+
+.contents h1 {
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--atlas-border);
+  font-size: 2rem;
+}
+
+.contents h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  font-size: 1.45rem;
+}
+
+.contents h3 {
+  margin-top: 1.6rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+}
+
+.contents a {
+  color: var(--atlas-link);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.contents a:hover {
+  color: var(--atlas-link-hover);
+}
+
+.contents ul,
+.contents ol {
+  padding-left: 1.45rem;
+}
+
+.contents li + li {
+  margin-top: 0.35rem;
+}
+
+.contents blockquote {
+  padding: 0.9rem 1rem;
+  border-left: 4px solid #cbd5e1;
+  background: var(--atlas-surface-alt);
+  color: var(--atlas-subtle);
+}
+
+.contents code {
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.35rem;
+  background: var(--atlas-surface-alt);
+}
+
+.contents .table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--atlas-surface);
+  border: 1px solid var(--atlas-border);
+}
+
+.contents .table-container th,
+.contents .table-container td {
+  padding: 0.8rem 0.95rem;
+  border: 1px solid var(--atlas-border);
+  vertical-align: top;
+}
+
+.contents .table-container th {
+  background: var(--atlas-surface-alt);
+}
+""".strip()
 
 
 class WikiSyncError(RuntimeError):
@@ -164,6 +273,19 @@ def login(base_url: str, username: str, password: str) -> str:
     return result["jwt"]
 
 
+def inject_managed_block(existing: str, start_marker: str, end_marker: str, payload: str) -> str:
+    content = existing.replace(LEGACY_SB_CLIENT_CLEANUP_HEAD, "").strip()
+    block = f"{start_marker}\n{payload.rstrip()}\n{end_marker}"
+    pattern = re.compile(re.escape(start_marker) + r".*?" + re.escape(end_marker), flags=re.DOTALL)
+    if pattern.search(content):
+        updated = pattern.sub(block, content, count=1)
+    elif content:
+        updated = f"{content}\n\n{block}"
+    else:
+        updated = block
+    return updated.rstrip() + "\n"
+
+
 def ensure_client_cleanup_theming(base_url: str, token: str) -> None:
     data = graphql(
         base_url,
@@ -187,7 +309,19 @@ def ensure_client_cleanup_theming(base_url: str, token: str) -> None:
         timeout=30,
     )
     config = data["theming"]["config"]
-    if config.get("injectHead") == LEGACY_SB_CLIENT_CLEANUP_HEAD:
+    desired_head = inject_managed_block(
+        str(config.get("injectHead") or ""),
+        MANAGED_HEAD_START,
+        MANAGED_HEAD_END,
+        LEGACY_SB_CLIENT_CLEANUP_HEAD,
+    )
+    desired_css = inject_managed_block(
+        str(config.get("injectCSS") or ""),
+        MANAGED_CSS_START,
+        MANAGED_CSS_END,
+        ATLAS_THEME_CSS,
+    )
+    if (config.get("injectHead") or "") == desired_head and (config.get("injectCSS") or "") == desired_css:
         return
 
     data = graphql(
@@ -226,8 +360,8 @@ def ensure_client_cleanup_theming(base_url: str, token: str) -> None:
             "iconset": config["iconset"],
             "darkMode": bool(config["darkMode"]),
             "tocPosition": config.get("tocPosition") or "left",
-            "injectCSS": config.get("injectCSS") or "",
-            "injectHead": LEGACY_SB_CLIENT_CLEANUP_HEAD,
+            "injectCSS": desired_css,
+            "injectHead": desired_head,
             "injectBody": config.get("injectBody") or "",
         },
         token=token,
@@ -238,6 +372,50 @@ def ensure_client_cleanup_theming(base_url: str, token: str) -> None:
         raise WikiSyncError(
             response.get("message") or response.get("slug") or "failed to update Wiki.js theming cleanup script"
         )
+
+
+def ensure_navigation_mode(base_url: str, token: str, mode: str) -> None:
+    data = graphql(
+        base_url,
+        """
+        query CurrentNavigationConfig {
+          navigation {
+            config {
+              mode
+            }
+          }
+        }
+        """,
+        {},
+        token=token,
+        timeout=30,
+    )
+    current_mode = data["navigation"]["config"]["mode"]
+    if current_mode == mode:
+        return
+
+    data = graphql(
+        base_url,
+        """
+        mutation UpdateNavigationMode($mode: NavigationMode!) {
+          navigation {
+            updateConfig(mode: $mode) {
+              responseResult {
+                succeeded
+                slug
+                message
+              }
+            }
+          }
+        }
+        """,
+        {"mode": mode},
+        token=token,
+        timeout=30,
+    )
+    response = data["navigation"]["updateConfig"]["responseResult"]
+    if not response["succeeded"]:
+        raise WikiSyncError(response.get("message") or response.get("slug") or "failed to update navigation mode")
 
 
 def ensure_setup(
@@ -386,6 +564,50 @@ def derive_description(body: str) -> str:
         if description:
             return description[:240]
     return ""
+
+
+def has_h1(body: str) -> bool:
+    return re.search(r"(?m)^\s*#\s+\S", body) is not None
+
+
+def add_title_heading(body: str, title: str) -> str:
+    if has_h1(body):
+        return body
+    stripped = body.strip()
+    if not stripped:
+        return f"# {title}\n"
+    return f"# {title}\n\n{stripped}\n"
+
+
+def rewrite_standalone_links_as_list(body: str) -> str:
+    standalone_link = re.compile(r"^\[[^\]]+\]\([^)]+\)$")
+
+    def rewrite_segment(segment: str) -> str:
+        lines = segment.splitlines()
+        rewritten: List[str] = []
+        for line in lines:
+            stripped = line.strip()
+            if (
+                stripped
+                and standalone_link.fullmatch(stripped)
+                and not stripped.startswith(("- ", "* ", "+ "))
+            ):
+                rewritten.append(f"- {stripped}")
+            else:
+                rewritten.append(line)
+        rebuilt = "\n".join(rewritten)
+        if segment.endswith("\n"):
+            rebuilt += "\n"
+        return rebuilt
+
+    return "".join(segment if is_code else rewrite_segment(segment) for is_code, segment in split_code_fences(body))
+
+
+def normalize_body(body: str, title: str) -> str:
+    normalized = body.replace("\r\n", "\n").strip()
+    normalized = add_title_heading(normalized, title)
+    normalized = rewrite_standalone_links_as_list(normalized)
+    return normalized.strip() + "\n"
 
 
 def slugify_segment(segment: str) -> str:
@@ -573,7 +795,8 @@ def build_page_specs(vault_root: Path) -> List[PageSpec]:
         raw = path.read_text(encoding="utf-8-sig")
         metadata, body = split_frontmatter(raw)
         title = derive_title(metadata, body, path.stem if path.name != "index.md" else path.parent.name or "Home")
-        body = rewrite_links(body, path, vault_root, wiki_paths).strip()
+        body = rewrite_links(body, path, vault_root, wiki_paths)
+        body = normalize_body(body, title)
         if not body:
             body = f"# {title}\n"
         description = derive_description(body)
@@ -777,6 +1000,7 @@ def sync_pages(
     locale: str,
     vault_root: Path,
     state_file: Optional[Path],
+    navigation_mode: str,
     dry_run: bool,
     verbose: bool,
 ) -> None:
@@ -792,6 +1016,7 @@ def sync_pages(
 
     token = login(base_url, admin_email, admin_password)
     ensure_client_cleanup_theming(base_url, token)
+    ensure_navigation_mode(base_url, token, navigation_mode)
     remote_pages = list_remote_pages(base_url, token, locale)
     remote_by_path = {page["path"]: page for page in remote_pages}
     atlas_remote = {
@@ -856,13 +1081,27 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
     common.add_argument("--admin-password", default=os.environ.get("WIKIJS_ADMIN_PASSWORD"))
     common.add_argument("--locale", default=os.environ.get("WIKIJS_LOCALE", DEFAULT_LOCALE))
     common.add_argument("--vault-root", type=Path, default=Path(os.environ.get("ATLAS_VAULT_ROOT", str(DEFAULT_VAULT_ROOT))))
+    common.add_argument(
+        "--navigation-mode",
+        default=os.environ.get("WIKIJS_NAVIGATION_MODE", DEFAULT_NAVIGATION_MODE),
+        choices=["NONE", "TREE", "MIXED", "STATIC"],
+    )
     common.add_argument("--verbose", action="store_true")
 
     setup_parser = subparsers.add_parser("ensure-setup", parents=[common])
     setup_parser.add_argument("--timeout-seconds", type=int, default=300)
 
     sync_parser = subparsers.add_parser("sync", parents=[common])
-    sync_parser.add_argument("--state-file", type=Path, default=Path(os.environ.get("ATLAS_WIKIJS_STATE_FILE", "/workspace/state/atlas-wikijs-sync.json")))
+    sync_parser.add_argument(
+        "--state-file",
+        type=Path,
+        default=Path(
+            os.environ.get(
+                "WIKIJS_SYNC_STATE_FILE",
+                os.environ.get("ATLAS_WIKIJS_STATE_FILE", "/workspace/state/wiki-wikijs-sync.json"),
+            )
+        ),
+    )
     sync_parser.add_argument("--dry-run", action="store_true")
 
     return parser.parse_args(argv)
@@ -892,6 +1131,7 @@ def main(argv: Sequence[str]) -> int:
             locale=args.locale,
             vault_root=args.vault_root,
             state_file=args.state_file,
+            navigation_mode=args.navigation_mode,
             dry_run=args.dry_run,
             verbose=args.verbose,
         )

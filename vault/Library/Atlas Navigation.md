@@ -1,5 +1,5 @@
 ---
-description: Restore clickable page navigation for Atlas page links.
+description: Restore clickable page navigation for Wiki page links.
 ---
 ```space-lua
 -- priority: 60
