@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import hashlib
 import json
 import os
@@ -160,6 +161,60 @@ ATLAS_THEME_CSS = """
 
 .contents .table-container th {
   background: var(--atlas-surface-alt);
+}
+
+.contents .atlas-home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.35rem 0 1.75rem;
+}
+
+.contents .atlas-home-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-height: 10.5rem;
+  padding: 1.15rem 1.2rem;
+  border: 1px solid var(--atlas-border);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  text-decoration: none;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.contents .atlas-home-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.1);
+}
+
+.contents .atlas-home-card__title {
+  color: #111827;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.contents .atlas-home-card__description {
+  color: var(--atlas-subtle);
+  line-height: 1.65;
+}
+
+.contents .atlas-home-card__cta {
+  margin-top: auto;
+  color: var(--atlas-link);
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .contents .atlas-home-grid {
+    grid-template-columns: 1fr;
+  }
 }
 """.strip()
 
@@ -679,6 +734,109 @@ def ensure_table_separation(body: str) -> str:
     return "".join(segment if is_code else rewrite_segment(segment) for is_code, segment in split_code_fences(body))
 
 
+def split_table_row(line: str) -> Optional[List[str]]:
+    stripped = line.strip()
+    if not stripped.startswith("|") or not stripped.endswith("|"):
+        return None
+    cells = [cell.strip() for cell in stripped[1:-1].split("|")]
+    if len(cells) != 2:
+        return None
+    return cells
+
+
+def is_markdown_separator_row(line: str) -> bool:
+    cells = split_table_row(line)
+    if not cells:
+        return False
+    return all(re.fullmatch(r":?-{3,}:?", cell) for cell in cells)
+
+
+def parse_home_card(title_cell: str, body_cell: str) -> Optional[Dict[str, str]]:
+    match = re.fullmatch(r"(.*?)(?:<br>\s*)?\[([^\]]+)\]\(([^)]+)\)\s*", body_cell.strip())
+    if not match:
+        return None
+    description = match.group(1).strip()
+    link_label = match.group(2).strip()
+    href = match.group(3).strip()
+    return {
+        "title": title_cell.strip(),
+        "description": description,
+        "link_label": link_label,
+        "href": href,
+    }
+
+
+def render_home_card_grid(cards: Sequence[Dict[str, str]]) -> str:
+    rendered_cards = []
+    for card in cards:
+        title = html.escape(card["title"])
+        description = html.escape(card["description"])
+        link_label = html.escape(card["link_label"])
+        href = html.escape(card["href"], quote=True)
+        rendered_cards.append(
+            "\n".join(
+                [
+                    f'  <a class="atlas-home-card" href="{href}">',
+                    f'    <span class="atlas-home-card__title">{title}</span>',
+                    f'    <span class="atlas-home-card__description">{description}</span>',
+                    f'    <span class="atlas-home-card__cta">{link_label}</span>',
+                    "  </a>",
+                ]
+            )
+        )
+    return "\n".join(
+        [
+            '<div class="atlas-home-grid">',
+            *rendered_cards,
+            "</div>",
+        ]
+    )
+
+
+def rewrite_home_section_grid(body: str, *, enabled: bool) -> str:
+    if not enabled:
+        return body
+
+    def try_parse_section(lines: Sequence[str], start: int) -> Optional[List[Dict[str, str]]]:
+        if start + 2 >= len(lines):
+            return None
+        header_cells = split_table_row(lines[start])
+        if not header_cells or not is_markdown_separator_row(lines[start + 1]):
+            return None
+        body_cells = split_table_row(lines[start + 2])
+        if not body_cells:
+            return None
+        cards = [parse_home_card(header_cells[idx], body_cells[idx]) for idx in range(2)]
+        if any(card is None for card in cards):
+            return None
+        return [card for card in cards if card]
+
+    def rewrite_segment(segment: str) -> str:
+        lines = segment.splitlines()
+        rebuilt: List[str] = []
+        idx = 0
+        while idx < len(lines):
+            parsed = try_parse_section(lines, idx)
+            if not parsed:
+                rebuilt.append(lines[idx])
+                idx += 1
+                continue
+
+            cards: List[Dict[str, str]] = []
+            while idx < len(lines):
+                while idx < len(lines) and not lines[idx].strip():
+                    idx += 1
+                parsed = try_parse_section(lines, idx)
+                if not parsed:
+                    break
+                cards.extend(parsed)
+                idx += 3
+            rebuilt.append(render_home_card_grid(cards))
+        return "\n".join(rebuilt)
+
+    return "".join(segment if is_code else rewrite_segment(segment) for is_code, segment in split_code_fences(body))
+
+
 def strip_page_tree_section(body: str) -> str:
     page_tree_section = re.compile(r"(?ms)^[ \t]*##[ \t]+Page Tree[ \t]*\n.*?(?=^[ \t]*##[ \t]+|^[ \t]*#[ \t]+|\Z)")
 
@@ -698,9 +856,10 @@ def strip_page_tree_section(body: str) -> str:
     return "\n".join(part for part in rebuilt if part).strip()
 
 
-def normalize_body(body: str, title: str) -> str:
+def normalize_body(body: str, title: str, *, is_workspace_home: bool = False) -> str:
     normalized = body.replace("\r\n", "\n").strip()
     normalized = strip_page_tree_section(normalized)
+    normalized = rewrite_home_section_grid(normalized, enabled=is_workspace_home)
     normalized = add_title_heading(normalized, title)
     normalized = rewrite_standalone_links_as_list(normalized)
     normalized = ensure_table_separation(normalized)
@@ -961,6 +1120,7 @@ def build_page_specs(vault_root: Path) -> List[PageSpec]:
     files = iter_content_files(vault_root)
     rel_paths = [path.relative_to(vault_root).as_posix() for path in files]
     primary_workspace_root = infer_primary_workspace_root(rel_paths)
+    workspace_home_rel_path = f"{primary_workspace_root}/index.md" if primary_workspace_root else "index.md"
     if primary_workspace_root:
         files = [path for path in files if path.relative_to(vault_root).as_posix() != "index.md"]
         rel_paths = [path.relative_to(vault_root).as_posix() for path in files]
@@ -973,7 +1133,11 @@ def build_page_specs(vault_root: Path) -> List[PageSpec]:
         metadata, body = split_frontmatter(raw)
         title = derive_title(metadata, body, path.stem if path.name != "index.md" else path.parent.name or "Home")
         body = rewrite_links(body, path, vault_root, wiki_paths)
-        body = normalize_body(body, title)
+        body = normalize_body(
+            body,
+            title,
+            is_workspace_home=(rel_path == workspace_home_rel_path),
+        )
         if not body:
             body = f"# {title}\n"
         description = derive_description(body)
