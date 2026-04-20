@@ -71,6 +71,10 @@ ATLAS_THEME_CSS = """
 }
 
 .contents {
+  width: 100%;
+  max-width: 960px;
+  margin-left: clamp(2rem, 6vw, 7rem);
+  margin-right: auto;
   color: var(--atlas-text);
   font-size: 1.04rem;
   line-height: 1.8;
@@ -212,6 +216,11 @@ ATLAS_THEME_CSS = """
 }
 
 @media (max-width: 760px) {
+  .contents {
+    max-width: none;
+    margin-left: 0;
+  }
+
   .contents .atlas-home-grid {
     grid-template-columns: 1fr;
   }
