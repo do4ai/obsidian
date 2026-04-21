@@ -1,12 +1,12 @@
 ---
-title: "9. 선형변환과 고유값"
+title: "09. 선형변환과 고유값"
 source_kind: page
 source_path: ssot/pages/31ee313f58b980d68c5ad8ed9d5aeff8__SenseCore AI LAB, AI융합학부/children/lecture/32be313f58b980078dbbeed4f006f95b__Lecture/children/math/32be313f58b981e7b26fea2d45e6fa7f__AI를 위한 수학/children/32be313f58b981dfaa1ef692510e6dfa__02. 식과 방정식의 언어/children/32ce313f58b981ad9be7f3becd1be9ff__9. 선형변환과 고유값
 notion_id: 32ce313f58b981ad9be7f3becd1be9ff
 notion_url: https://www.notion.so/32ce313f58b981ad9be7f3becd1be9ff
 parent_notion_id: 32be313f58b981dfaa1ef692510e6dfa
 ---
-8강에서 행렬을 `여러 가중합을 한꺼번에 계산하는 표`로 읽었습니다. 9강에서는 그 행렬을 한 단계 더 깊게 읽습니다. 행렬은 단순한 숫자표가 아니라 `벡터를 다른 벡터로 보내는 규칙`, 즉 선형변환으로 볼 수 있습니다. 그리고 그 변환 속에는 방향이 바뀌지 않는 특별한 축이 숨어 있는데, 그것이 고유벡터와 고유값입니다.
+08강에서 행렬을 `여러 가중합을 한꺼번에 계산하는 표`로 읽었습니다. 09강에서는 그 행렬을 한 단계 더 깊게 읽습니다. 행렬은 단순한 숫자표가 아니라 `벡터를 다른 벡터로 보내는 규칙`, 즉 선형변환으로 볼 수 있습니다. 그리고 그 변환 속에는 방향이 바뀌지 않는 특별한 축이 숨어 있는데, 그것이 고유벡터와 고유값입니다.
 
 # 먼저 알아둘 말
 - 변환: 한 대상을 다른 대상으로 보내는 규칙이다.

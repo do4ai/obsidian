@@ -1,5 +1,5 @@
 ---
-title: "8. 행렬연산과 선형시스템"
+title: "08. 행렬연산과 선형시스템"
 source_kind: page
 source_path: ssot/pages/31ee313f58b980d68c5ad8ed9d5aeff8__SenseCore AI LAB, AI융합학부/children/lecture/32be313f58b980078dbbeed4f006f95b__Lecture/children/math/32be313f58b981e7b26fea2d45e6fa7f__AI를 위한 수학/children/32be313f58b981dfaa1ef692510e6dfa__02. 식과 방정식의 언어/children/32ce313f58b981ff91c1fb25407aebb8__8. 행렬연산과 선형시스템
 notion_id: 32ce313f58b981ff91c1fb25407aebb8
