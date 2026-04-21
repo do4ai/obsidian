@@ -3,104 +3,158 @@ title: "VLM을 위한 수학과 구조"
 source_kind: page
 ---
 # VLM을 위한 수학과 구조
-이 책은 [AI를 위한 수학](../AI를 위한 수학/index.md)의 8단계에서 다룬 VLM, 멀티모달 생성, grounding 주제를 별도 교재로 깊게 파기 위한 초안입니다. 목표는 VLM을 단순히 "이미지와 텍스트를 함께 넣는 모델"로 보는 수준을 넘어서, 이미지 표현이 토큰으로 바뀌고, 텍스트와 정렬되고, 생성 구조 안에서 결합되고, grounding과 평가 문제까지 이어지는 전체 흐름을 하나의 구조로 읽게 만드는 것입니다.
+이 책은 [AI를 위한 수학](../AI를 위한 수학/index.md)의 학습 구조를 그대로 이어 받아, 순서대로 읽기만 해도 VLM의 표현, 정렬, 생성, grounding, 평가, 시스템 확장, 최신 연구 흐름까지 한 단계씩 이해할 수 있게 만든 교재입니다. 목표는 모델 이름을 많이 아는 것이 아니라, 어떤 VLM을 보더라도 입력 표현이 어떻게 바뀌고, 어떤 손실로 학습되며, 어느 구조에서 실패하는지를 처음부터 끝까지 스스로 설명할 수 있게 만드는 것입니다.
 
 # 이 책의 목표
-- 이미지를 feature map, patch, token으로 바꾸는 수학적 표현을 익힙니다.
-- CLIP과 contrastive learning에서 출발해 shared embedding space를 이해합니다.
-- projector, cross-attention, Q-Former, resampler 같은 연결 구조를 읽습니다.
-- grounding, OCR, hallucination, faithfulness 같은 실제 품질 문제를 설명할 수 있게 합니다.
-- VLM이 비디오, 생성, 에이전트 시스템으로 확장되는 방향을 구조 관점에서 정리합니다.
-
-# 이 책이 필요한 이유
-- `AI를 위한 수학` 본편은 큰 흐름과 핵심 수학을 잡는 데 초점을 둡니다.
-- 하지만 VLM은 비전 인코더, 멀티모달 정렬, 생성 구조, 평가 체계까지 각각이 독립 교재가 될 정도로 넓습니다.
-- 그래서 이 책은 본편을 반복하지 않고, VLM에만 필요한 구조와 수학을 한 층 더 깊게 이어서 다룹니다.
+- 이미지가 patch, feature map, token 시퀀스로 바뀌는 시각 표현의 기초를 익힙니다.
+- image-text alignment와 multimodal pretraining의 핵심 손실을 순서대로 읽습니다.
+- cross-attention, Q-Former, decoder-only VLM 같은 대표 구조를 비교할 수 있게 합니다.
+- OCR, region reasoning, hallucination, faithfulness를 실제 품질 문제로 연결합니다.
+- multimodal instruction tuning, evaluation, agent 확장, frontier 논문 독해까지 하나의 흐름으로 묶습니다.
 
 # 이 책을 읽는 방법
-- 먼저 [AI를 위한 수학](../AI를 위한 수학/index.md)의 2, 5, 7, 8단계를 읽는 것이 좋습니다.
-- 식이 나오면 먼저 "어떤 모달의 어떤 표현이 어디로 이동하는가"를 말로 읽습니다.
-- 아키텍처 이름을 외우기보다 정보 흐름을 먼저 잡습니다.
-- 같은 주제를 정렬, 생성, 평가 세 관점에서 반복해 읽습니다.
-- 각 강의의 마지막 질문에 답할 수 있을 때 다음 강의로 넘어갑니다.
+- 처음부터 끝까지 순서대로 읽습니다. 뒤 단계는 앞 단계의 표현과 용어를 이미 알고 있다고 가정합니다.
+- 모듈 이름을 외우기보다 먼저 입력, 중간 표현, 출력이 어디로 흐르는지를 말로 읽습니다.
+- 식이 나오면 벡터와 토큰이 어떻게 이동하는지 먼저 설명한 뒤 계산합니다.
+- OCR, grounding, evaluation처럼 실제 실패 사례가 등장하면 구조와 연결해 다시 읽습니다.
+- 한 번에 이해되지 않으면 바로 앞 단계의 용어와 정보 흐름으로 돌아갑니다.
 
 # 이 책의 읽는 순서
 1. 이미지를 토큰으로 바꾸는 시야
 2. 이미지와 텍스트를 같은 공간에 맞추기
 3. VLM 아키텍처와 정보 흐름
-4. Grounding, OCR, 멀티모달 정렬
-5. 비디오, 생성, 에이전트로 확장
+4. Grounding, OCR, region reasoning
+5. 멀티모달 생성과 instruction tuning
+6. 평가, 신뢰성, hallucination 완화
+7. 비디오, 음성, 에이전트로 확장
+8. Frontier VLM과 최신 논문 독해
 
-이 순서는 VLM을 구성 부품별로 쪼개기보다, 표현에서 정렬로, 정렬에서 결합으로, 결합에서 품질과 응용으로 흐르도록 배치했습니다.
+이 순서는 단순 역사 순서가 아니라, 표현에서 시작해 정렬과 구조를 익히고, 그 위에서 생성과 평가를 본 뒤, 마지막에 시스템과 frontier를 읽도록 배치했습니다.
 
 # 각 단계에서 무엇을 배우는가
 ## 1단계. 이미지를 토큰으로 바꾸는 시야
-- 이미지가 patch, feature map, token 시퀀스로 바뀌는 과정을 배웁니다.
-- CNN과 ViT가 어떤 방식으로 시각 표현을 만드는지 비교합니다.
-- projector, adapter, connector가 왜 필요한지 설명합니다.
+- 이미지가 patch, feature map, vision token으로 바뀌는 방식을 배웁니다.
+- CNN과 ViT가 어떤 시각 표현을 만드는지 비교합니다.
+- resolution, token budget, connector가 왜 이후 단계의 전제인지 이해합니다.
 
 ## 2단계. 이미지와 텍스트를 같은 공간에 맞추기
-- CLIP의 contrastive learning이 shared embedding space를 어떻게 만드는지 봅니다.
-- temperature, negative sampling, retrieval 품질이 왜 중요한지 이해합니다.
-- multimodal pretraining objective와 data mixture의 역할을 정리합니다.
+- shared embedding과 contrastive learning의 기본 목적을 읽습니다.
+- CLIP objective, in-batch negative, retrieval를 수학적으로 해석합니다.
+- pretraining objective 조합과 data mixture가 모델 성격을 어떻게 바꾸는지 정리합니다.
 
 ## 3단계. VLM 아키텍처와 정보 흐름
-- early fusion, late fusion, encoder-decoder 구조를 비교합니다.
-- cross-attention, Q-Former, resampler가 어떤 연결 문제를 해결하는지 읽습니다.
-- decoder-only VLM, visual prompt, prefix 방식이 어떻게 동작하는지 설명합니다.
+- encoder-decoder, decoder-only, early fusion, late fusion 구조를 비교합니다.
+- cross-attention, Q-Former, resampler, visual prompt의 역할을 구분합니다.
+- 대표 VLM 계열의 설계 차이를 정보 흐름 관점에서 설명합니다.
 
-## 4단계. Grounding, OCR, 멀티모달 정렬
-- region reasoning, OCR, grounding이 실제 정답성과 어떻게 연결되는지 봅니다.
-- hallucination과 faithfulness를 평가하는 관점을 정리합니다.
-- multimodal instruction tuning과 alignment를 텍스트-only alignment와 비교합니다.
+## 4단계. Grounding, OCR, region reasoning
+- OCR, 문서 이해, 차트 이해가 왜 일반 captioning보다 어려운지 배웁니다.
+- spatial reference, region token, referring expression을 구조와 연결합니다.
+- visual reasoning과 hallucination failure를 함께 읽습니다.
 
-## 5단계. 비디오, 생성, 에이전트로 확장
-- video token과 temporal modeling으로 시각 문맥이 시간축으로 늘어나는 방식을 설명합니다.
-- multimodal RAG, tool use, agent loop가 왜 VLM 다음 단계인지 정리합니다.
-- diffusion과 unified multimodal model이 생성 쪽으로 구조를 어떻게 넓히는지 봅니다.
+## 5단계. 멀티모달 생성과 instruction tuning
+- captioning과 VQA를 넘어 instruction-following VLM이 어떻게 만들어지는지 봅니다.
+- SFT, preference learning, RLHF, DPO를 멀티모달 맥락에서 다시 읽습니다.
+- safety policy와 refusal이 생성 구조와 어떻게 얽히는지 이해합니다.
+
+## 6단계. 평가, 신뢰성, hallucination 완화
+- benchmark와 evaluation protocol을 비판적으로 읽는 법을 배웁니다.
+- hallucination taxonomy, faithfulness, calibration을 체계적으로 정리합니다.
+- verifier, retrieval grounding, human evaluation을 제품 지표와 연결합니다.
+
+## 7단계. 비디오, 음성, 에이전트로 확장
+- 비디오 토큰과 temporal modeling이 왜 새로운 난제를 만드는지 이해합니다.
+- audio와 spoken dialogue가 붙을 때 multimodal 구조가 어떻게 넓어지는지 봅니다.
+- multimodal RAG, tool use, GUI agent, serving 이슈를 시스템 관점에서 읽습니다.
+
+## 8단계. Frontier VLM과 최신 논문 독해
+- multimodal diffusion, unified model, MoE, world model 같은 frontier 주제를 정리합니다.
+- open-source VLM 생태계와 실험 설계를 읽는 기준을 세웁니다.
+- 최신 논문을 읽을 때 objective, architecture, data, evaluation을 어떻게 점검할지 익힙니다.
 
 # 모든 강의가 따르는 공통 순서
-- 먼저 어떤 입력과 출력이 오가는지 문제를 세웁니다.
-- 그다음 각 모듈이 어떤 표현을 주고받는지 정리합니다.
-- 그다음 필요한 수식과 손실을 붙입니다.
-- 마지막에 실제 사용 장면과 실패 사례를 연결합니다.
+- 먼저 어떤 입력과 출력 문제를 다루는지 세웁니다.
+- 그다음 필요한 표현과 모듈을 쉬운 말로 정리합니다.
+- 그다음 손실, attention, 토큰 흐름 같은 핵심 수식을 붙입니다.
+- 마지막에 실제 사용 장면, 실패 사례, 다음 단계 연결로 마무리합니다.
+
+이 책은 이 순서를 지키면서 진행하므로, 위에서 아래로 읽기만 해도 VLM의 구조가 끊기지 않도록 구성합니다.
 
 # 읽기 전에 기억할 약속
-- 아키텍처 이름보다 정보 흐름이 먼저입니다.
-- 이미지는 "큰 덩어리"가 아니라 시퀀스로 읽습니다.
-- 좋은 정답은 유창함만이 아니라 grounding을 요구합니다.
-- retrieval, OCR, generation, agent를 따로 떼지 말고 연결된 문제로 봅니다.
-- 이 책의 목적은 모델 이름 암기가 아니라 구조를 읽는 습관입니다.
+- 이미지도 텍스트처럼 시퀀스로 읽습니다.
+- 구조 이름보다 정보 흐름이 먼저입니다.
+- 좋은 성능은 유창함만이 아니라 grounding과 faithfulness를 포함합니다.
+- benchmark 점수는 출발점이지 최종 결론이 아닙니다.
+- 이 책의 목적은 유행 모델 정리가 아니라 VLM을 읽는 습관을 만드는 것입니다.
 
 # 이 책을 마치면
-이 책을 끝내면 어떤 VLM을 보더라도 `"vision encoder는 무엇을 내고, connector는 무엇을 바꾸고, language model은 어느 시점에 어떤 시각 정보를 읽는가"`를 먼저 묻는 습관이 생겨야 합니다. 더 나아가 contrastive alignment와 multimodal generation, grounding 평가와 hallucination 완화, 비디오와 에이전트 확장까지 하나의 수학적 흐름 안에서 연결할 수 있어야 합니다.
+이 책을 끝내면 어떤 VLM 논문이나 제품을 보더라도, vision encoder가 무엇을 내고, text side와 어디서 만나며, 어떤 objective로 학습되고, 무엇 때문에 hallucination이 생기고, 어떤 evaluation이 부족한지를 순서대로 설명할 수 있어야 합니다. 더 나아가 이미지 VLM에서 비디오, 음성, agent, unified model로 확장되는 흐름까지 하나의 커리큘럼 안에서 연결해 볼 수 있어야 합니다.
 
 # 단계 목록
-[01. 이미지를 토큰으로 바꾸는 시야](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/01-이미지를-토큰으로-바꾸는-시야)
-[02. 이미지와 텍스트를 같은 공간에 맞추기](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/02-이미지와-텍스트를-같은-공간에-맞추기)
-[03. VLM 아키텍처와 정보 흐름](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/03-vlm-아키텍처와-정보-흐름)
-[04. Grounding, OCR, 멀티모달 정렬](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/04-grounding-ocr-멀티모달-정렬)
-[05. 비디오, 생성, 에이전트로 확장](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/05-비디오-생성-에이전트로-확장)
+[01. 이미지를 토큰으로 바꾸는 시야](01. 이미지를 토큰으로 바꾸는 시야/index.md)
+[02. 이미지와 텍스트를 같은 공간에 맞추기](02. 이미지와 텍스트를 같은 공간에 맞추기/index.md)
+[03. VLM 아키텍처와 정보 흐름](03. VLM 아키텍처와 정보 흐름/index.md)
+[04. Grounding, OCR, region reasoning](04. Grounding, OCR, region reasoning/index.md)
+[05. 멀티모달 생성과 instruction tuning](05. 멀티모달 생성과 instruction tuning/index.md)
+[06. 평가, 신뢰성, hallucination 완화](06. 평가, 신뢰성, hallucination 완화/index.md)
+[07. 비디오, 음성, 에이전트로 확장](07. 비디오, 음성, 에이전트로 확장/index.md)
+[08. Frontier VLM과 최신 논문 독해](08. Frontier VLM과 최신 논문 독해/index.md)
 
 ## Page Tree
 
-- [01. 이미지를 토큰으로 바꾸는 시야](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/01-이미지를-토큰으로-바꾸는-시야)
-  - [1. 패치, feature map, vision token](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/01-이미지를-토큰으로-바꾸는-시야/1-패치-feature-map-vision-token)
-  - [2. CNN, ViT, vision encoder 비교](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/01-이미지를-토큰으로-바꾸는-시야/2-cnn-vit-vision-encoder-비교)
-  - [3. projector, adapter, connector](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/01-이미지를-토큰으로-바꾸는-시야/3-projector-adapter-connector)
-- [02. 이미지와 텍스트를 같은 공간에 맞추기](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/02-이미지와-텍스트를-같은-공간에-맞추기)
-  - [4. CLIP, contrastive learning, shared embedding](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/02-이미지와-텍스트를-같은-공간에-맞추기/4-clip-contrastive-learning-shared-embedding)
-  - [5. hard negative, temperature, retrieval](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/02-이미지와-텍스트를-같은-공간에-맞추기/5-hard-negative-temperature-retrieval)
-  - [6. multimodal pretraining objective와 data mixture](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/02-이미지와-텍스트를-같은-공간에-맞추기/6-multimodal-pretraining-objective와-data-mixture)
-- [03. VLM 아키텍처와 정보 흐름](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/03-vlm-아키텍처와-정보-흐름)
-  - [7. early fusion, late fusion, encoder-decoder](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/03-vlm-아키텍처와-정보-흐름/7-early-fusion-late-fusion-encoder-decoder)
-  - [8. cross-attention, Q-Former, resampler](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/03-vlm-아키텍처와-정보-흐름/8-cross-attention-q-former-resampler)
-  - [9. decoder-only VLM, prefix tuning, visual prompt](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/03-vlm-아키텍처와-정보-흐름/9-decoder-only-vlm-prefix-tuning-visual-prompt)
-- [04. Grounding, OCR, 멀티모달 정렬](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/04-grounding-ocr-멀티모달-정렬)
-  - [10. grounding, OCR, region reasoning](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/04-grounding-ocr-멀티모달-정렬/10-grounding-ocr-region-reasoning)
-  - [11. hallucination, faithfulness, evaluation](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/04-grounding-ocr-멀티모달-정렬/11-hallucination-faithfulness-evaluation)
-  - [12. instruction tuning, RLHF, multimodal alignment](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/04-grounding-ocr-멀티모달-정렬/12-instruction-tuning-rlhf-multimodal-alignment)
-- [05. 비디오, 생성, 에이전트로 확장](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/05-비디오-생성-에이전트로-확장)
-  - [13. video token, temporal modeling, long context](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/05-비디오-생성-에이전트로-확장/13-video-token-temporal-modeling-long-context)
-  - [14. multimodal RAG, tool use, agent loop](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/05-비디오-생성-에이전트로-확장/14-multimodal-rag-tool-use-agent-loop)
-  - [15. diffusion, image generation, unified multimodal model](https://wiki.do4ai.com/home/lecture/vlm을-위한-수학과-구조/05-비디오-생성-에이전트로-확장/15-diffusion-image-generation-unified-multimodal-model)
+- [01. 이미지를 토큰으로 바꾸는 시야](01. 이미지를 토큰으로 바꾸는 시야/index.md)
+  - [1. pixel, patch, feature map, vision token](01. 이미지를 토큰으로 바꾸는 시야/1. pixel, patch, feature map, vision token/index.md)
+  - [2. CNN, ViT, positional structure](01. 이미지를 토큰으로 바꾸는 시야/2. CNN, ViT, positional structure/index.md)
+  - [3. resolution, stride, pooling, token budget](01. 이미지를 토큰으로 바꾸는 시야/3. resolution, stride, pooling, token budget/index.md)
+  - [4. projector, adapter, connector](01. 이미지를 토큰으로 바꾸는 시야/4. projector, adapter, connector/index.md)
+  - [5. vision backbone pretraining과 transfer](01. 이미지를 토큰으로 바꾸는 시야/5. vision backbone pretraining과 transfer/index.md)
+  - [문제 해설 - 01. 이미지를 토큰으로 바꾸는 시야](01. 이미지를 토큰으로 바꾸는 시야/문제 해설 - 01. 이미지를 토큰으로 바꾸는 시야/index.md)
+- [02. 이미지와 텍스트를 같은 공간에 맞추기](02. 이미지와 텍스트를 같은 공간에 맞추기/index.md)
+  - [06. image-text pair, shared embedding, cosine similarity](02. 이미지와 텍스트를 같은 공간에 맞추기/06. image-text pair, shared embedding, cosine similarity/index.md)
+  - [07. CLIP objective, in-batch negative, temperature](02. 이미지와 텍스트를 같은 공간에 맞추기/07. CLIP objective, in-batch negative, temperature/index.md)
+  - [08. hard negative, retrieval, ranking](02. 이미지와 텍스트를 같은 공간에 맞추기/08. hard negative, retrieval, ranking/index.md)
+  - [09. captioning, matching, contrastive objective 조합](02. 이미지와 텍스트를 같은 공간에 맞추기/09. captioning, matching, contrastive objective 조합/index.md)
+  - [10. data mixture, web-scale data, curriculum](02. 이미지와 텍스트를 같은 공간에 맞추기/10. data mixture, web-scale data, curriculum/index.md)
+  - [문제 해설 - 02. 이미지와 텍스트를 같은 공간에 맞추기](02. 이미지와 텍스트를 같은 공간에 맞추기/문제 해설 - 02. 이미지와 텍스트를 같은 공간에 맞추기/index.md)
+- [03. VLM 아키텍처와 정보 흐름](03. VLM 아키텍처와 정보 흐름/index.md)
+  - [11. encoder-decoder, decoder-only, fusion map](03. VLM 아키텍처와 정보 흐름/11. encoder-decoder, decoder-only, fusion map/index.md)
+  - [12. cross-attention, perceiver resampler, Q-Former](03. VLM 아키텍처와 정보 흐름/12. cross-attention, perceiver resampler, Q-Former/index.md)
+  - [13. prefix tuning, visual prompt, frozen LM](03. VLM 아키텍처와 정보 흐름/13. prefix tuning, visual prompt, frozen LM/index.md)
+  - [14. token compression, memory, long context](03. VLM 아키텍처와 정보 흐름/14. token compression, memory, long context/index.md)
+  - [15. representative VLM families 비교](03. VLM 아키텍처와 정보 흐름/15. representative VLM families 비교/index.md)
+  - [문제 해설 - 03. VLM 아키텍처와 정보 흐름](03. VLM 아키텍처와 정보 흐름/문제 해설 - 03. VLM 아키텍처와 정보 흐름/index.md)
+- [04. Grounding, OCR, region reasoning](04. Grounding, OCR, region reasoning/index.md)
+  - [16. OCR, document understanding, chart understanding](04. Grounding, OCR, region reasoning/16. OCR, document understanding, chart understanding/index.md)
+  - [17. box, mask, region token, spatial reference](04. Grounding, OCR, region reasoning/17. box, mask, region token, spatial reference/index.md)
+  - [18. referring expression, region reasoning, counting](04. Grounding, OCR, region reasoning/18. referring expression, region reasoning, counting/index.md)
+  - [19. multimodal chain-of-thought와 visual reasoning](04. Grounding, OCR, region reasoning/19. multimodal chain-of-thought와 visual reasoning/index.md)
+  - [20. grounding failure와 hallucination의 구조](04. Grounding, OCR, region reasoning/20. grounding failure와 hallucination의 구조/index.md)
+  - [문제 해설 - 04. Grounding, OCR, region reasoning](04. Grounding, OCR, region reasoning/문제 해설 - 04. Grounding, OCR, region reasoning/index.md)
+- [05. 멀티모달 생성과 instruction tuning](05. 멀티모달 생성과 instruction tuning/index.md)
+  - [21. captioning, VQA, conditional generation](05. 멀티모달 생성과 instruction tuning/21. captioning, VQA, conditional generation/index.md)
+  - [22. supervised fine-tuning과 multimodal instruction data](05. 멀티모달 생성과 instruction tuning/22. supervised fine-tuning과 multimodal instruction data/index.md)
+  - [23. preference learning, reward model, RLHF](05. 멀티모달 생성과 instruction tuning/23. preference learning, reward model, RLHF/index.md)
+  - [24. DPO, rejection sampling, policy alignment](05. 멀티모달 생성과 instruction tuning/24. DPO, rejection sampling, policy alignment/index.md)
+  - [25. safety policy, refusal, jailbreak 대응](05. 멀티모달 생성과 instruction tuning/25. safety policy, refusal, jailbreak 대응/index.md)
+  - [문제 해설 - 05. 멀티모달 생성과 instruction tuning](05. 멀티모달 생성과 instruction tuning/문제 해설 - 05. 멀티모달 생성과 instruction tuning/index.md)
+- [06. 평가, 신뢰성, hallucination 완화](06. 평가, 신뢰성, hallucination 완화/index.md)
+  - [26. benchmark, leaderboard, evaluation protocol](06. 평가, 신뢰성, hallucination 완화/26. benchmark, leaderboard, evaluation protocol/index.md)
+  - [27. hallucination taxonomy와 faithfulness](06. 평가, 신뢰성, hallucination 완화/27. hallucination taxonomy와 faithfulness/index.md)
+  - [28. calibration, uncertainty, abstention](06. 평가, 신뢰성, hallucination 완화/28. calibration, uncertainty, abstention/index.md)
+  - [29. data filtering, verifier, retrieval grounding](06. 평가, 신뢰성, hallucination 완화/29. data filtering, verifier, retrieval grounding/index.md)
+  - [30. human evaluation과 product metric](06. 평가, 신뢰성, hallucination 완화/30. human evaluation과 product metric/index.md)
+  - [문제 해설 - 06. 평가, 신뢰성, hallucination 완화](06. 평가, 신뢰성, hallucination 완화/문제 해설 - 06. 평가, 신뢰성, hallucination 완화/index.md)
+- [07. 비디오, 음성, 에이전트로 확장](07. 비디오, 음성, 에이전트로 확장/index.md)
+  - [31. video token, frame sampling, temporal modeling](07. 비디오, 음성, 에이전트로 확장/31. video token, frame sampling, temporal modeling/index.md)
+  - [32. speech, audio, spoken dialogue extension](07. 비디오, 음성, 에이전트로 확장/32. speech, audio, spoken dialogue extension/index.md)
+  - [33. multimodal RAG, memory, tool use](07. 비디오, 음성, 에이전트로 확장/33. multimodal RAG, memory, tool use/index.md)
+  - [34. GUI agent, robotics, embodied reasoning](07. 비디오, 음성, 에이전트로 확장/34. GUI agent, robotics, embodied reasoning/index.md)
+  - [35. latency, serving, cost optimization](07. 비디오, 음성, 에이전트로 확장/35. latency, serving, cost optimization/index.md)
+  - [문제 해설 - 07. 비디오, 음성, 에이전트로 확장](07. 비디오, 음성, 에이전트로 확장/문제 해설 - 07. 비디오, 음성, 에이전트로 확장/index.md)
+- [08. Frontier VLM과 최신 논문 독해](08. Frontier VLM과 최신 논문 독해/index.md)
+  - [36. multimodal diffusion과 unified model](08. Frontier VLM과 최신 논문 독해/36. multimodal diffusion과 unified model/index.md)
+  - [37. mixture-of-experts, adaptive compute, token routing](08. Frontier VLM과 최신 논문 독해/37. mixture-of-experts, adaptive compute, token routing/index.md)
+  - [38. world model, simulation, action-conditioned model](08. Frontier VLM과 최신 논문 독해/38. world model, simulation, action-conditioned model/index.md)
+  - [39. open-source VLM ecosystem과 실험 설계](08. Frontier VLM과 최신 논문 독해/39. open-source VLM ecosystem과 실험 설계/index.md)
+  - [40. 최신 VLM 논문 독해 프레임워크](08. Frontier VLM과 최신 논문 독해/40. 최신 VLM 논문 독해 프레임워크/index.md)
+  - [문제 해설 - 08. Frontier VLM과 최신 논문 독해](08. Frontier VLM과 최신 논문 독해/문제 해설 - 08. Frontier VLM과 최신 논문 독해/index.md)
